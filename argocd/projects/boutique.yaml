@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: boutique
+  namespace: argocd
+spec:
+  description: Online Boutique environments
+  sourceRepos:
+    - https://github.com/jsboak/microservices-demo
+    - https://github.com/jsboak/boutique-gitops
+    - https://github.com/jsboak/platform-edge
+    - https://github.com/jsboak/mesh-policies
+  destinations:
+    - name: gke-prod-us-central1
+      namespace: boutique-prod
+    - server: https://kubernetes.default.svc
+      namespace: boutique-staging
+  clusterResourceWhitelist:
+    - group: kyverno.io
+      kind: ClusterPolicy

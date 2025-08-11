@@ -1,0 +1,11 @@
+# Helm values for the onlineboutique chart, staging environment.
+images:
+  repository: us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo
+  tag: v0.10.7
+
+frontend:
+  externalService: true
+  platform: gcp
+
+loadGenerator:
+  create: true
