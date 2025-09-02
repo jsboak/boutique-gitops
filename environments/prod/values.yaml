@@ -1,0 +1,18 @@
+# Helm values for the onlineboutique chart, prod environment.
+images:
+  repository: us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo
+  tag: v0.10.7
+
+frontend:
+  externalService: false
+  platform: gcp
+
+loadGenerator:
+  create: false
+
+seccompProfile:
+  enable: true
+  type: RuntimeDefault
+
+securityContext:
+  enable: true
