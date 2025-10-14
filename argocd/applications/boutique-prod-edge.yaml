@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: boutique-prod-edge
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: boutique
+  source:
+    repoURL: https://github.com/jsboak/platform-edge
+    targetRevision: main
+    path: k8s/prod
+  destination:
+    name: gke-prod-us-central1
+    namespace: boutique-prod
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
