@@ -9,7 +9,7 @@ spec:
   project: boutique
   sources:
     - repoURL: https://github.com/jsboak/microservices-demo
-      targetRevision: main
+      targetRevision: v0.10.7
       path: helm-chart
       helm:
         releaseName: onlineboutique
